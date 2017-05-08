@@ -1,0 +1,14 @@
+.pontos {
+    width:  10px;
+    height: 10px;
+    background-color: red;
+    position: absolute;
+    margin: 25.5px;
+    border-radius: 50%;
+}
+
+.line {
+  transform-origin: 0 100%;
+  height: 3px; /* Line width of 3 */
+  background: lightgreen; /* Black fill */
+}

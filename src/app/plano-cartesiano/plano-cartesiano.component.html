@@ -1,0 +1,25 @@
+<div id="plano-cartesiano" [style.width]='getWidth()' [style.height]='getHeight()'>
+  <app-linhas-grades
+    [largura]="largura"
+    [altura]="altura"
+    [escala]="escala"
+  ></app-linhas-grades>
+  <app-pontos *ngFor='let ponto of pontos; let nome = index'
+    [abscissa]="ponto[0]"
+    [ordenada]="ponto[1]"
+    [largura]="largura"
+    [altura]="altura"
+    [nome]="nome"
+    [escala]="escala"
+    [conexao]=false
+  ></app-pontos>
+  <app-pontos *ngFor='let ponto of conexoes; let nome = index'
+    [abscissa]="ponto[0]"
+    [ordenada]="ponto[1]"
+    [largura]="largura"
+    [altura]="altura"
+    [nome]="nome"
+    [escala]="escala"
+    [conexao]=true
+  ></app-pontos>
+</div>
