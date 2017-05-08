@@ -1,0 +1,7 @@
+.lines {
+    position: absolute;
+    transform-origin: 0 100%;
+    background-color: lightgreen;
+    height: 3px;
+    margin: 30px;
+}

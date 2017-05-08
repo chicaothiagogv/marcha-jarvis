@@ -7,6 +7,7 @@ import { LinhasGradesComponent } from '../linhas-grades/linhas-grades.component'
   templateUrl: './plano-cartesiano.component.html',
   styleUrls: ['./plano-cartesiano.component.css']
 })
+
 export class PlanoCartesianoComponent implements OnInit {
 
   @Input() pontos: Array<number>
@@ -19,7 +20,6 @@ export class PlanoCartesianoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.desenharLinhas()
   }
 
   getHeight() {
@@ -46,7 +46,7 @@ export class PlanoCartesianoComponent implements OnInit {
       let dist = this.calcularDistancia(ant, prox)
       var length = Math.sqrt(dist) * this.escala;
       var angle  = Math.atan2(prox[1] - ant[1], prox[0] - ant[0]) * 180 / Math.PI;
-      
+
       var _transform = 'rotate(' + angle + 'deg)';
 
       var line = document.createElement('DIV')

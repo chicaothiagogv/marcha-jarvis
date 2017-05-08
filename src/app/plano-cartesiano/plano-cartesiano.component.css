@@ -6,9 +6,3 @@
     position: relative;
     padding: 30px;
 }
-
-.line {
-  transform-origin: 0 100%;
-  height: 3px; /* Line width of 3 */
-  background: lightgreen; /* Black fill */
-}

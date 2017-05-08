@@ -13,13 +13,9 @@
     [escala]="escala"
     [conexao]=false
   ></app-pontos>
-  <app-pontos *ngFor='let ponto of conexoes; let nome = index'
-    [abscissa]="ponto[0]"
-    [ordenada]="ponto[1]"
-    [largura]="largura"
-    [altura]="altura"
-    [nome]="nome"
+  <app-lines *ngFor='let ponto of conexoes; let id = index'
+    [conexoes]="conexoes"
+    [id]="id"
     [escala]="escala"
-    [conexao]=true
-  ></app-pontos>
+  ></app-lines>
 </div>

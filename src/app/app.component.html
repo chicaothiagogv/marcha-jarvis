@@ -1,5 +1,10 @@
 <div id="app-component">
-    <app-plano-cartesiano
+  <div class='options'>
+    <h3>Menu:
+      <button type="buttom" (click)="gerarPontos($event)">Gerar conjunto de pontos</button>
+    </h3>
+  </div>
+  <app-plano-cartesiano
     [pontos]="pontos"
     [raiz]=0
     [largura]="largura"
@@ -8,5 +13,5 @@
     [conexoes]="conexoes"
   >
   </app-plano-cartesiano>
-  
+
 </div>
