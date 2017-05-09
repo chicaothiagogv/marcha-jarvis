@@ -2,10 +2,10 @@
   <div class='options'>
       <p><button style="padding: 10px;" type="buttom" (click)="gerarPontos($event)"><h3>Gerar conjunto de pontos</h3></button></p>
       <p><label style="margin: 10px;">Mínimo de Pontos: {{ minPontos }}</label></p>
-      <p><input style="width: 500px;" [(ngModel)]="minPontos" type="range" min="20" max="{{maxPontos - 1}}"/></p>
+      <p><input style="width: 500px;" [(ngModel)]="minPontos" type="range" min="20" max="{{maxPontos}}"/></p>
       <p><label  style="margin: 10px;">Máximo de Pontos: {{ maxPontos }}</label></p>
-      <p><input style="width: 500px;" [(ngModel)]="maxPontos" type="range" min="{{minPontos + 1}}" max="{{ escala * 4}}"/></p>
-      <p><b>Orientação:</b> Inicia no ponto (0, 0) no topo esquerdo, e finaliza no ponto (20, 20) ao canto inferior direito</p>
+      <p><input style="width: 500px;" [(ngModel)]="maxPontos" type="range" min="{{minPontos + 1}}" max="{{ (altura/escala) * largura/escala }}"/></p>
+      <p><b>Orientação:</b> Inicia no ponto (0, 0) no topo esquerdo, e finaliza no ponto ({{ largura/escala }}, {{ altura/escala }}) ao canto inferior direito</p>
   </div>
   <app-plano-cartesiano
     [pontos]="pontos"
@@ -18,7 +18,7 @@
   </app-plano-cartesiano>
   <div style="width: 500px">
     <div style="width: 250px; float: left;">
-      <h3>Pontos</h3>
+      <h3>Pontos {{ pontos.length }}</h3>
       <table>
         <thead>
           <th>X</th>
@@ -33,7 +33,7 @@
       </table>
     </div>
     <div style="width: 250px; float: left;">
-      <h3>Pontos da Extremidade</h3>
+      <h3>Pontos da Extremidade {{ conexoes.length }}</h3>
       <table>
         <thead>
           <th>X</th>

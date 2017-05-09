@@ -1,9 +1,9 @@
 .pontos {
-    width:  10px;
-    height: 10px;
+    width:  4px;
+    height: 4px;
     background-color: red;
     position: absolute;
-    margin: 25.5px;
+    margin: 28.5px;
     border-radius: 50%;
 }
 

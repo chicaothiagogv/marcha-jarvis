@@ -2,13 +2,15 @@
     <div *ngFor="let linha of linhaX;"
         [style.left]="linha[0]"
         [style.height]="linha[1]"
-        style="background-color: grey; position: absolute; width: 1px;"
+        style="width: 1px;"
+        class="linha-grade"
     >
     </div>
     <div *ngFor="let linha of linhaY;"
         [style.top]="linha[0]"
         [style.width]="linha[1]"
-        style="background-color: grey; position: absolute; height: 1px;"
+        style="height: 1px;"
+        class="linha-grade"
     >
     </div>
 </div>

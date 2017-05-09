@@ -1,4 +1,8 @@
 #linhas-grade {
-    background-color: yellow;
+    background-color: #000;
+    position: absolute;
+}
+.linha-grade {
+    background-color: #222222;
     position: absolute;
 }

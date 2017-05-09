@@ -7,9 +7,9 @@ import { PlanoCartesianoComponent } from './plano-cartesiano/plano-cartesiano.co
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  largura = 500
-  altura = 500
-  escala = 25
+  largura = 800
+  altura = 800
+  escala = 16
   raiz = 0
   maxPontos = 100
   minPontos = 3
@@ -23,6 +23,7 @@ export class AppComponent {
   }
 
   constructor () {
+    this.maxPontos = (this.altura/this.escala) * (this.largura/this.escala) / 2
     this.gerarPontos(event)
   }
 
@@ -124,8 +125,8 @@ export class AppComponent {
 
   gerarPontos(event) {
     this.quantidade = Math.floor((Math.random() * (this.maxPontos - this.minPontos)) + this.minPontos);
-    var maxX = Math.round(this.largura / this.escala)
-    var maxY = Math.round(this.altura / this.escala)
+    var maxX = Math.round(this.largura / this.escala) + 1
+    var maxY = Math.round(this.altura / this.escala) + 1
     var _pontos = []
     for (let i = 0; i < this.quantidade; i++) {
       var y = Math.floor((Math.random() * maxY));
