@@ -37,7 +37,7 @@ export class LinesComponent implements OnInit {
       return ''
     }
 
-    let angle  = Math.atan2(this.proximo[1] - this.anterior[1], this.proximo[0] - this.anterior[0]) * 180 / Math.PI;
+    let angle  = Math.atan2(this.proximo[1] - this.anterior[1], this.proximo[0] - this.anterior[0]) * -180 / Math.PI;
     let _transform = 'rotate(' + angle + 'deg)';
     return _transform
   }

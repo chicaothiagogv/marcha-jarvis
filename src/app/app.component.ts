@@ -28,15 +28,15 @@ export class AppComponent {
   }
 
   buscaRaiz(pontos) {
-    var maxY = -Infinity
+    var minY = Infinity
     var ind = Infinity
     var equal = false
     var inds = []
 
     // maior Y
     for(let x = 0; x < pontos.length; x++) {
-      if (pontos[x][1] > maxY) {
-        maxY = pontos[x][1]
+      if (pontos[x][1] < minY) {
+        minY = pontos[x][1]
         ind = x
       }
     }
@@ -44,7 +44,7 @@ export class AppComponent {
     // Maior X
     var maxX = -Infinity
     for (let x = 0; x < pontos.length; x++) {
-      if (pontos[x][0] >= maxX && pontos[x][1] == maxY) {
+      if (pontos[x][0] >= maxX && pontos[x][1] == minY) {
         ind = x
         maxX = pontos[x][0]
       }
@@ -55,16 +55,16 @@ export class AppComponent {
 
   buscarConexoes() {
     this.conexoes.push(this.pontos[this.raiz])
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i <= this.maxPontos; i++) {
       if (this.conexoes[i] != undefined)
       if (!this.buscarProximo(this.pontos, this.conexoes[i]) ) {
         break
       }
     }
-    this.conexoes.push(this.conexoes[0])    
+
+    this.conexoes.push(this.conexoes[0])
   }
 
-  // Busca os pontos de acordo com o angulo deste com o vetor
   buscarProximo(pontos, p) {
     // """Returns the next point on the convex hull in CCW from p."""
     var q = p
@@ -139,7 +139,7 @@ export class AppComponent {
 
     this.buscaRaiz(this.pontos)
     this.buscarConexoes()
-    
+
   }
 
 }

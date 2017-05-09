@@ -5,7 +5,7 @@
       <p><input style="width: 500px;" [(ngModel)]="minPontos" type="range" min="20" max="{{maxPontos}}"/></p>
       <p><label  style="margin: 10px;">Máximo de Pontos: {{ maxPontos }}</label></p>
       <p><input style="width: 500px;" [(ngModel)]="maxPontos" type="range" min="{{minPontos + 1}}" max="{{ (altura/escala) * largura/escala }}"/></p>
-      <p><b>Orientação:</b> Inicia no ponto (0, 0) no topo esquerdo, e finaliza no ponto ({{ largura/escala }}, {{ altura/escala }}) ao canto inferior direito</p>
+      <p><b>Orientação:</b> Inicia no ponto (0, 0) no canto inferior esquerdo, e finaliza no ponto ({{ largura/escala }}, {{ altura/escala }}) ao canto superior direito</p>
   </div>
   <app-plano-cartesiano
     [pontos]="pontos"
