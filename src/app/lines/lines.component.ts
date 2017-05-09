@@ -16,10 +16,7 @@ export class LinesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    if (this.id >= (this.conexoes.length - 1)) {
-      console.log('fim')
-    }
-    else {
+    if (this.id < (this.conexoes.length - 1)) {
       this.anterior = this.conexoes[this.id]
       this.proximo = this.conexoes[this.id + 1]
     }
@@ -71,4 +68,12 @@ export class LinesComponent implements OnInit {
     return (this.anterior[1] * this.escala) + 'px'
   }
 
+  getCor() {
+    if (this.id === 0) {
+      return 'yellow'
+    }
+    else {
+      return 'lightgreen'
+    }
+  }
 }

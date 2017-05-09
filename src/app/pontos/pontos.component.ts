@@ -18,7 +18,6 @@ export class PontosComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.conexao)
   }
 
   getOrdenada() {

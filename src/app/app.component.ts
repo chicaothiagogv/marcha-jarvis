@@ -11,7 +11,9 @@ export class AppComponent {
   altura = 500
   escala = 25
   raiz = 0
-  quantidade = 20
+  maxPontos = 100
+  minPontos = 3
+  quantidade
   pontos
 
   conexoes = []
@@ -22,29 +24,28 @@ export class AppComponent {
 
   constructor () {
     this.gerarPontos(event)
-    this.buscaRaiz(this.pontos)
-    this.buscarConexoes()
   }
 
   buscaRaiz(pontos) {
-    var minY = Infinity
+    var maxY = -Infinity
     var ind = Infinity
     var equal = false
     var inds = []
 
-    // Menor Y
+    // maior Y
     for(let x = 0; x < pontos.length; x++) {
-      if (pontos[x][1] < minY) {
-        minY = pontos[x][1]
+      if (pontos[x][1] > maxY) {
+        maxY = pontos[x][1]
         ind = x
       }
     }
 
     // Maior X
-    var maxX = pontos[ind][0]
+    var maxX = -Infinity
     for (let x = 0; x < pontos.length; x++) {
-      if (pontos[x][0] > maxX && pontos[x][1] == minY) {
+      if (pontos[x][0] >= maxX && pontos[x][1] == maxY) {
         ind = x
+        maxX = pontos[x][0]
       }
     }
 
@@ -59,6 +60,7 @@ export class AppComponent {
         break
       }
     }
+    this.conexoes.push(this.conexoes[0])    
   }
 
   // Busca os pontos de acordo com o angulo deste com o vetor
@@ -74,14 +76,26 @@ export class AppComponent {
       }
     }
 
-    if ( this.compVetor(this.conexoes[0], q) ) {
-      this.conexoes.push(this.conexoes[0])
+    if (this.compVetor(this.conexoes[0], q) ) {
       return false
     }
     else {
-      this.conexoes.push(q)
+      if (!this.verificarSeExiste(q)) {
+        this.conexoes.push(q)
+      }
+
       return true
     }
+  }
+
+  verificarSeExiste(q) {
+    for (let i = 1; i < this.conexoes.length; i++) {
+      if (this.compVetor(this.conexoes[i], q)) {
+        return true
+      }
+    }
+
+    return false
   }
 
   verificaRotacao(p, q, r) {
@@ -109,6 +123,7 @@ export class AppComponent {
   }
 
   gerarPontos(event) {
+    this.quantidade = Math.floor((Math.random() * (this.maxPontos - this.minPontos)) + this.minPontos);
     var maxX = Math.round(this.largura / this.escala)
     var maxY = Math.round(this.altura / this.escala)
     var _pontos = []
@@ -117,11 +132,13 @@ export class AppComponent {
       var x = Math.floor((Math.random() * maxX));
       _pontos.push([x, y])
     }
-    console.log(_pontos.length)
+
     this.pontos = _pontos
     this.conexoes = []
+
     this.buscaRaiz(this.pontos)
     this.buscarConexoes()
+    
   }
 
 }

@@ -1,8 +1,10 @@
 <div id="app-component">
   <div class='options'>
-    <h3>Menu:
-      <button type="buttom" (click)="gerarPontos($event)">Gerar conjunto de pontos</button>
-    </h3>
+      <p><button style="padding: 10px;" type="buttom" (click)="gerarPontos($event)"><h3>Gerar conjunto de pontos</h3></button></p>
+      <p><label style="margin: 10px;">Mínimo de Pontos: {{ minPontos }}</label></p>
+      <p><input style="width: 500px;" [(ngModel)]="minPontos" type="range" min="20" max="{{maxPontos - 1}}"/></p>
+      <p><label  style="margin: 10px;">Máximo de Pontos: {{ maxPontos }}</label></p>
+      <p><input style="width: 500px;" [(ngModel)]="maxPontos" type="range" min="{{minPontos + 1}}" max="{{ escala * 4}}"/></p>
   </div>
   <app-plano-cartesiano
     [pontos]="pontos"
